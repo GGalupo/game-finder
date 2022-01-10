@@ -15,8 +15,11 @@ interface HomeProps {
 
 const Home: NextPage<HomeProps> = ({ apiKey }) => {
   const [gamesList, setGamesList] = useState<Game[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    let mounted = true;
+
     const getGamesList = async () => {
       try {
         const response = await axios("https://mmo-games.p.rapidapi.com/games", {
@@ -26,13 +29,19 @@ const Home: NextPage<HomeProps> = ({ apiKey }) => {
           },
         });
 
-        setGamesList(response.data);
+        if (mounted) setGamesList(response.data);
       } catch (e) {
         console.error(e);
+      } finally {
+        if (mounted) setIsLoading(false);
       }
     };
 
     getGamesList();
+
+    return () => {
+      mounted = false;
+    };
   }, []);
 
   return (
@@ -46,9 +55,11 @@ const Home: NextPage<HomeProps> = ({ apiKey }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      {gamesList.map((game) => (
-        <GameCard key={game.id} game={game} />
-      ))}
+      {isLoading ? (
+        <h1>Carregando...</h1>
+      ) : (
+        gamesList.map((game) => <GameCard key={game.id} game={game} />)
+      )}
     </>
   );
 };
