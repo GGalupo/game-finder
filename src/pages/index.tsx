@@ -1,20 +1,19 @@
 import { useEffect, useState } from "react";
 
-import type { NextPage } from "next";
+import type { GetServerSideProps, NextPage } from "next";
 import Head from "next/head";
 
 import axios from "axios";
 
-interface Game {
-  id: number;
-  title: string;
-  imgUrl: string;
-  description: string;
-  gameUrl: string;
-  releaseDate: string;
+import { GameCard } from "../components/GameCard";
+
+import { Game } from "../types";
+
+interface HomeProps {
+  apiKey: string;
 }
 
-const Home: NextPage = () => {
+const Home: NextPage<HomeProps> = ({ apiKey }) => {
   const [gamesList, setGamesList] = useState<Game[]>([]);
 
   useEffect(() => {
@@ -23,7 +22,7 @@ const Home: NextPage = () => {
         const response = await axios("https://mmo-games.p.rapidapi.com/games", {
           headers: {
             "x-rapidapi-host": "mmo-games.p.rapidapi.com",
-            "x-rapidapi-key": process.env.RAPIDAPI_KEY!,
+            "x-rapidapi-key": apiKey,
           },
         });
 
@@ -36,7 +35,6 @@ const Home: NextPage = () => {
     getGamesList();
   }, []);
 
-  console.log(gamesList);
   return (
     <>
       <Head>
@@ -47,8 +45,22 @@ const Home: NextPage = () => {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+
+      {gamesList.map((game) => (
+        <GameCard key={game.id} game={game} />
+      ))}
     </>
   );
 };
 
 export default Home;
+
+export const getServerSideProps: GetServerSideProps = async () => {
+  const apiKey = process.env.RAPIDAPI_KEY!;
+
+  return {
+    props: {
+      apiKey,
+    },
+  };
+};
