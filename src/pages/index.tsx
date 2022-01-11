@@ -9,6 +9,8 @@ import { GameCard } from "../components/GameCard";
 
 import { Game } from "../types";
 
+import { StyledContainer } from "../styles/container";
+
 interface HomeProps {
   apiKey: string;
 }
@@ -58,7 +60,11 @@ const Home: NextPage<HomeProps> = ({ apiKey }) => {
       {isLoading ? (
         <h1>Carregando...</h1>
       ) : (
-        gamesList.map((game) => <GameCard key={game.id} game={game} />)
+        <StyledContainer>
+          {gamesList.map((game) => (
+            <GameCard key={game.id} game={game} />
+          ))}
+        </StyledContainer>
       )}
     </>
   );
