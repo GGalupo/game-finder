@@ -24,14 +24,26 @@ const Home: NextPage<HomeProps> = ({ apiKey }) => {
 
     const getGamesList = async () => {
       try {
-        const response = await axios("https://mmo-games.p.rapidapi.com/games", {
-          headers: {
-            "x-rapidapi-host": "mmo-games.p.rapidapi.com",
-            "x-rapidapi-key": apiKey,
-          },
+        const data = await axios
+          .get<Game[]>("https://mmo-games.p.rapidapi.com/games", {
+            headers: {
+              "x-rapidapi-host": "mmo-games.p.rapidapi.com",
+              "x-rapidapi-key": apiKey,
+            },
+          })
+          .then((response) => response.data);
+
+        const formattedData = data.map((item) => {
+          return {
+            id: item.id,
+            title: item.title,
+            thumbnail: item.thumbnail,
+            short_description: item.short_description,
+            release_date: new Date(item.release_date).getFullYear(),
+          };
         });
 
-        if (mounted) setGamesList(response.data);
+        if (mounted) setGamesList(formattedData);
       } catch (e) {
         console.error(e);
       } finally {
