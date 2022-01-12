@@ -4,7 +4,7 @@ import Image from "next/image";
 
 import { Game } from "../types";
 
-import { StyledContainer } from "./styles";
+import { StyledCardContainer } from "./styles";
 import Link from "next/link";
 
 interface GameCardProps {
@@ -13,7 +13,7 @@ interface GameCardProps {
 
 const GameCardComponent = ({ game }: GameCardProps) => {
   return (
-    <StyledContainer>
+    <StyledCardContainer>
       <Link href={`/${game.id.toString()}`}>
         <a>
           <Image
@@ -31,7 +31,7 @@ const GameCardComponent = ({ game }: GameCardProps) => {
           </div>
         </a>
       </Link>
-    </StyledContainer>
+    </StyledCardContainer>
   );
 };
 

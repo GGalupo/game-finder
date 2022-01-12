@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StyledContainer = styled.div`
+export const StyledCardContainer = styled.div`
   width: 330px;
 
   a {
