@@ -1,7 +1,11 @@
-import { StyledContainer } from "./styles";
+import { memo } from "react";
+
+import Image from "next/image";
 
 import { Game } from "../types";
-import { memo } from "react";
+
+import { StyledContainer } from "./styles";
+import Link from "next/link";
 
 interface GameCardProps {
   game: Game;
@@ -10,7 +14,23 @@ interface GameCardProps {
 const GameCardComponent = ({ game }: GameCardProps) => {
   return (
     <StyledContainer>
-      <span>{game.title}</span>
+      <Link href={`/${game.id.toString()}`}>
+        <a>
+          <Image
+            src={game.thumbnail}
+            alt={game.title}
+            width={365}
+            height={206}
+            className="thumb"
+          />
+
+          <div>
+            <h2>{game.title}</h2>
+            <time>{game.release_date}</time>
+            <p>{game.short_description}</p>
+          </div>
+        </a>
+      </Link>
     </StyledContainer>
   );
 };
