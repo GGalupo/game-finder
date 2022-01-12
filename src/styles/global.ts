@@ -7,9 +7,15 @@ export const GlobalStyles = createGlobalStyle`
         padding: 0;
     }
 
+    :root {
+        --gray: #a2a2a2;
+        --background: #222;
+        --white: #fff;
+    }
+
     body {
-        background: #222;
-        color: #fff;
+        background: var(--background);
+        color: var(--white);
     }
 
     body,
