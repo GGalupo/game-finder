@@ -1,10 +1,9 @@
 export interface Game {
   id: number;
   title: string;
-  imgUrl: string;
-  description: string;
-  gameUrl: string;
-  releaseDate: string;
+  thumbnail: string;
+  short_description: string;
+  release_date: string | number;
 }
 
 interface Screenshot {
@@ -17,12 +16,12 @@ export interface GameDetails {
   title: string;
   thumbnail: string;
   description: string;
-  gameUrl: string;
+  game_url: string;
   genre: string;
   publisher: string;
   developer: string;
-  releaseDate: string;
-  minimumRequirements: {
+  release_date: string;
+  minimum_system_requirements: {
     os: string;
     processor: string;
     memory: string;
