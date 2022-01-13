@@ -43,15 +43,19 @@ const Home: NextPage<HomeProps> = ({ apiKey }) => {
           })
           .then((response) => response.data);
 
-        const formattedData = data.map((item) => {
-          return {
-            id: item.id,
-            title: item.title,
-            thumbnail: item.thumbnail,
-            short_description: item.short_description,
-            release_date: new Date(item.release_date).getFullYear().toString(),
-          };
-        });
+        const formattedData = data
+          .map((item) => {
+            return {
+              id: item.id,
+              title: item.title,
+              thumbnail: item.thumbnail,
+              short_description: item.short_description,
+              release_date: new Date(item.release_date)
+                .getFullYear()
+                .toString(),
+            };
+          })
+          .sort((a, b) => (a.title > b.title ? 1 : -1));
 
         if (mounted) setGamesList(formattedData);
       } catch (e) {
