@@ -62,7 +62,7 @@ const Game: NextPage<GameProps> = ({ apiKey }) => {
     return () => {
       mounted = false;
     };
-  }, []);
+  }, [apiKey, id]);
 
   return (
     <>
@@ -110,7 +110,7 @@ const Game: NextPage<GameProps> = ({ apiKey }) => {
                     </StyledButton>
                     <StyledButton type="button" buttonType="play">
                       <FaGamepad />
-                      <a href={game.game_url} target="_blank" rel="noopener">
+                      <a href={game.game_url} target="_blank" rel="noreferrer">
                         Play now!
                       </a>
                     </StyledButton>

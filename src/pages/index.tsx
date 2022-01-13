@@ -66,7 +66,7 @@ const Home: NextPage<HomeProps> = ({ apiKey }) => {
     return () => {
       mounted = false;
     };
-  }, []);
+  }, [apiKey]);
 
   const filterSearchedGames = (game: Game) => {
     if (search === "") return true;
