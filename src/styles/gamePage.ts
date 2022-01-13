@@ -147,6 +147,7 @@ export const StyledGameInfo = styled.div`
 
     .requirements {
       grid-area: requirements;
+      align-items: flex-start;
     }
   }
 `;
