@@ -2,7 +2,7 @@ import { memo } from "react";
 
 import Image from "next/image";
 
-import { Game } from "../types";
+import { Game } from "../../types";
 
 import { StyledCardContainer } from "./styles";
 import Link from "next/link";

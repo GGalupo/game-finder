@@ -5,7 +5,8 @@ import Head from "next/head";
 
 import axios from "axios";
 
-import { GameCard } from "../components/GameCard";
+import { GameCard } from "../components/GameCard/GameCard";
+import { Loading } from "../components/Loading/Loading";
 
 import { Game } from "../types";
 
@@ -70,7 +71,7 @@ const Home: NextPage<HomeProps> = ({ apiKey }) => {
       </Head>
 
       {isLoading ? (
-        <h1>Carregando...</h1>
+        <Loading />
       ) : (
         <StyledContainer>
           {gamesList.map((game) => (

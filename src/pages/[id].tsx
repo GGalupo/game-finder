@@ -10,6 +10,8 @@ import axios from "axios";
 
 import { GameDetails } from "../types";
 
+import { Loading } from "../components/Loading/Loading";
+
 import { FaGamepad } from "react-icons/fa";
 import { IoMdArrowBack } from "react-icons/io";
 
@@ -71,7 +73,7 @@ const Game: NextPage<GameProps> = ({ apiKey }) => {
       <main>
         <StyledContainer>
           {isLoading ? (
-            <span>Carregando...</span>
+            <Loading />
           ) : game ? (
             <StyledPageContainer>
               <StyledPageHeader>
