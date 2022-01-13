@@ -11,6 +11,13 @@ import { Loading } from "../components/Loading/Loading";
 import { Game } from "../types";
 
 import { StyledContainer } from "../styles/container";
+import {
+  StyledDividerText,
+  StyledExploreText,
+  StyledPageTitle,
+  StyledSearchInputContainer,
+} from "../styles/homePage";
+import { FaSearch } from "react-icons/fa";
 
 interface HomeProps {
   apiKey: string;
@@ -19,6 +26,8 @@ interface HomeProps {
 const Home: NextPage<HomeProps> = ({ apiKey }) => {
   const [gamesList, setGamesList] = useState<Game[]>([]);
   const [isLoading, setIsLoading] = useState(true);
+
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
     let mounted = true;
@@ -40,7 +49,7 @@ const Home: NextPage<HomeProps> = ({ apiKey }) => {
             title: item.title,
             thumbnail: item.thumbnail,
             short_description: item.short_description,
-            release_date: new Date(item.release_date).getFullYear(),
+            release_date: new Date(item.release_date).getFullYear().toString(),
           };
         });
 
@@ -70,15 +79,34 @@ const Home: NextPage<HomeProps> = ({ apiKey }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      {isLoading ? (
-        <Loading />
-      ) : (
-        <StyledContainer>
-          {gamesList.map((game) => (
-            <GameCard key={game.id} game={game} />
-          ))}
-        </StyledContainer>
-      )}
+      <StyledContainer>
+        <StyledPageTitle>
+          Game Finder
+          <br />
+          <span>Find the best games to play!</span>
+        </StyledPageTitle>
+
+        <StyledSearchInputContainer>
+          <FaSearch className="icon" />
+          <input
+            type="search"
+            placeholder="Search for a game..."
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+          />
+        </StyledSearchInputContainer>
+
+        <StyledDividerText>or</StyledDividerText>
+
+        <StyledExploreText>
+          {search !== "" ? "Search results" : "Explore"}
+        </StyledExploreText>
+        {isLoading ? (
+          <Loading />
+        ) : (
+          gamesList.map((game) => <GameCard key={game.id} game={game} />)
+        )}
+      </StyledContainer>
     </>
   );
 };
