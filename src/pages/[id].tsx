@@ -102,18 +102,20 @@ const Game: NextPage<GameProps> = ({ apiKey }) => {
                   <div dangerouslySetInnerHTML={{ __html: game.description }} />
 
                   <div className="buttons-container">
-                    <StyledButton type="button" buttonType="back">
-                      <IoMdArrowBack />
-                      <Link href="/">
-                        <a>Back to list</a>
-                      </Link>
-                    </StyledButton>
-                    <StyledButton type="button" buttonType="play">
-                      <FaGamepad />
-                      <a href={game.game_url} target="_blank" rel="noreferrer">
-                        Play now!
+                    <Link href="/">
+                      <a>
+                        <StyledButton type="button" buttonType="back">
+                          <IoMdArrowBack />
+                          Back to list
+                        </StyledButton>
                       </a>
-                    </StyledButton>
+                    </Link>
+                    <a href={game.game_url} target="_blank" rel="noreferrer">
+                      <StyledButton type="button" buttonType="play">
+                        <FaGamepad />
+                        Play now!
+                      </StyledButton>
+                    </a>
                   </div>
                 </div>
 
