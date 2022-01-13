@@ -68,6 +68,12 @@ const Home: NextPage<HomeProps> = ({ apiKey }) => {
     };
   }, []);
 
+  const filterSearchedGames = (game: Game) => {
+    if (search === "") return true;
+
+    return game.title.toLocaleLowerCase().includes(search.toLowerCase());
+  };
+
   return (
     <>
       <Head>
@@ -104,7 +110,9 @@ const Home: NextPage<HomeProps> = ({ apiKey }) => {
         {isLoading ? (
           <Loading />
         ) : (
-          gamesList.map((game) => <GameCard key={game.id} game={game} />)
+          gamesList
+            .filter(filterSearchedGames)
+            .map((game) => <GameCard key={game.id} game={game} />)
         )}
       </StyledContainer>
     </>
