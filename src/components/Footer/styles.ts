@@ -3,18 +3,13 @@ import styled from "styled-components";
 export const StyledFooter = styled.footer`
   width: 100%;
   height: 4rem;
-
   z-index: 10;
-
   background: var(--background);
-
   display: flex;
   align-items: center;
   justify-content: space-between;
-
   position: fixed;
   bottom: 0;
-
   border-top: 2px solid var(--gray);
 
   > span {
@@ -24,7 +19,6 @@ export const StyledFooter = styled.footer`
     svg {
       font-size: 1rem;
       color: red;
-
       margin: 0 0.4rem;
     }
 

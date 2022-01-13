@@ -25,9 +25,7 @@ export const StyledPageContainer = styled.div`
     .screenshots-container {
       h2 {
         text-align: left;
-
         font-size: 2rem;
-
         margin-bottom: 3rem;
       }
 
@@ -45,7 +43,6 @@ export const StyledPageHeader = styled.header`
   flex-direction: column;
   align-items: center;
   gap: 0.25rem;
-
   margin-bottom: 1.75rem;
 
   .info {
@@ -75,16 +72,11 @@ export const StyledPageHeader = styled.header`
 
     .thumb {
       grid-area: thumb;
-
-      &::after {
-      }
     }
 
     .info {
       grid-area: info;
-
       align-items: flex-start;
-
       margin-left: 3.5rem;
     }
   }
@@ -98,7 +90,6 @@ export const StyledGameInfo = styled.div`
     p {
       font-size: 1.1rem;
       line-height: 1.5rem;
-
       color: var(--gray);
 
       & + p {
@@ -111,7 +102,6 @@ export const StyledGameInfo = styled.div`
       display: flex;
       justify-content: center;
       gap: 1.25rem;
-
       align-items: center;
     }
   }
@@ -126,7 +116,6 @@ export const StyledGameInfo = styled.div`
     }
     span {
       color: var(--gray);
-
       line-height: 2rem;
     }
   }
@@ -160,7 +149,6 @@ export const StyledButton = styled.button<{ buttonType: "back" | "play" }>`
   width: 140px;
   height: 60px;
   gap: 0.5rem;
-
   border-radius: 0.5rem;
   font-size: 1rem;
 
@@ -170,7 +158,6 @@ export const StyledButton = styled.button<{ buttonType: "back" | "play" }>`
         border: 1px solid var(--gray);
         background: none;
         color: var(--gray);
-
       `
       : `
         border: 1px solid var(--white);
@@ -189,15 +176,12 @@ export const StyledFailedContainer = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-
   margin-top: 5rem;
-
   gap: 2rem;
 
   button {
     padding: 1rem;
     border-radius: 0.5rem;
-
     border: none;
     background: var(--gray);
   }

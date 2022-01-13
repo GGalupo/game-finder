@@ -6,7 +6,6 @@ export const LoadingContainer = styled.div`
   align-items: center;
   flex-direction: column;
   gap: 1rem;
-
   margin-top: 5rem;
 
   .loader {

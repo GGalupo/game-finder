@@ -4,7 +4,6 @@ export const StyledPageTitle = styled.h1`
   font-size: 3.5rem;
   text-align: center;
   max-width: 350px;
-
   margin: 3rem 0;
 
   span {
@@ -22,10 +21,9 @@ export const StyledDividerText = styled.span`
   display: block;
   text-align: center;
   overflow: hidden;
-
   color: var(--gray);
-
   margin: 1rem 0;
+
   &:before,
   &:after {
     background-color: var(--gray);
@@ -62,7 +60,6 @@ export const StyledSearchInputContainer = styled.div`
 
   .icon {
     padding: 10px;
-    /* background: dodgerblue; */
     color: white;
     min-width: 40px;
     min-height: 40px;
@@ -76,9 +73,7 @@ export const StyledSearchInputContainer = styled.div`
     height: 3rem;
     width: 100%;
     color: var(--white);
-
     padding: 0.5rem 1.25rem 0.5rem 0.5rem;
-
     border-radius: 0.5rem;
     font-size: 1.25rem;
   }
@@ -92,6 +87,5 @@ export const StyledExploreText = styled.span`
   font-size: 1.5rem;
   font-weight: bold;
   text-decoration: underline;
-
   margin-bottom: 0.75rem;
 `;

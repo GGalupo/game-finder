@@ -5,12 +5,9 @@ export const StyledCardContainer = styled.div`
 
   a {
     height: 380px;
-
     position: relative;
-
     display: flex;
     flex-direction: column;
-
     border: 1px solid grey;
     border-radius: 0.5rem;
 
@@ -26,7 +23,6 @@ export const StyledCardContainer = styled.div`
 
       h2 {
         font-size: 2rem;
-
         display: -webkit-box;
         -webkit-line-clamp: 1;
         -webkit-box-orient: vertical;
@@ -36,7 +32,6 @@ export const StyledCardContainer = styled.div`
 
       time {
         font-weight: bold;
-
         margin: 0.2rem 0 1.5rem;
       }
 
@@ -46,10 +41,8 @@ export const StyledCardContainer = styled.div`
         -webkit-box-orient: vertical;
         overflow: hidden;
         text-overflow: ellipsis;
-
         text-align: justify;
         line-height: 1.5rem;
-
         color: #a2a2a2;
       }
     }
@@ -74,7 +67,6 @@ export const StyledCardContainer = styled.div`
 
       .thumb {
         grid-area: thumb;
-
         border-bottom-left-radius: 0.5rem;
         border-top-right-radius: 0;
       }
