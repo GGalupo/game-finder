@@ -75,19 +75,24 @@ const Game: NextPage<GameProps> = ({ apiKey }) => {
           ) : game ? (
             <StyledPageContainer>
               <StyledPageHeader>
-                <Image
-                  src={game.thumbnail}
-                  alt={game.title}
-                  width={365}
-                  height={206}
-                />
-                <h1>{game?.title}</h1>
-                <time>
-                  {new Date(game.release_date).getFullYear().toString()}
-                </time>
-                <span>{game.genre}</span>
-                <span>Publisher: {game.publisher}</span>
-                <span>Developer: {game.developer}</span>
+                <div className="thumb">
+                  <Image
+                    src={game.thumbnail}
+                    alt={game.title}
+                    width={365}
+                    height={206}
+                  />
+                </div>
+
+                <div className="info">
+                  <h1>{game?.title}</h1>
+                  <time>
+                    {new Date(game.release_date).getFullYear().toString()}
+                  </time>
+                  <span>{game.genre}</span>
+                  <span>Publisher: {game.publisher}</span>
+                  <span>Developer: {game.developer}</span>
+                </div>
               </StyledPageHeader>
 
               <StyledGameInfo>
@@ -134,18 +139,20 @@ const Game: NextPage<GameProps> = ({ apiKey }) => {
                 </div>
               </StyledGameInfo>
 
-              <div className="screenshots">
+              <div className="screenshots-container">
                 <h2>Screenshots</h2>
                 {game.screenshots.length > 0 ? (
-                  game.screenshots.map((screenshot) => (
-                    <Image
-                      src={screenshot.image}
-                      alt={`${game.title} gameplay`}
-                      width={485}
-                      height={273}
-                      key={screenshot.id}
-                    />
-                  ))
+                  <div className="screenshots">
+                    {game.screenshots.map((screenshot) => (
+                      <Image
+                        src={screenshot.image}
+                        alt={`${game.title} gameplay`}
+                        width={485}
+                        height={273}
+                        key={screenshot.id}
+                      />
+                    ))}
+                  </div>
                 ) : (
                   <span>No screenshots for this game.</span>
                 )}
