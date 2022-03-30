@@ -1,38 +1,71 @@
-##  📖 Sobre o projeto
-Game Finder é um projeto que permite ao usuário buscar jogos para jogar. Ao clicar em um jogo da lista, é possível ver informações detalhadas sobre ele.
+##  📖 About the project
+Game Finder is a project that let users search for games to play.
 
-Os dados são buscados da API https://www.mmobomb.com/api.
+By clicking on a game, the user can see detailed information about it.
 
-## 🎉 Projeto no ar
+The data is being fetched from the following API: [MMO Bomb](https://www.mmobomb.com/api)
+## 🎉 Live project
+
 https://game-finder-ggalupo.vercel.app/
 
-## ⚙ Configurando a variável de ambiente
-É necessário adicionar uma chave da API para fazer as requisições. Caso não possua a sua, acesse o link https://rapidapi.com/digiwalls/api/mmo-games, crie sua conta e pegue uma.
+## ⚙ Environment Variable
 
-Na raíz do projeto, existe um arquivo com nome .env.example. Renomeie-o para .env.local e, em seguida, adicione sua chave logo após o sinal de =.
+You'll need an API key for the requests. If you don't have one, go to [Rapid API](https://rapidapi.com/digiwalls/api/mmo-games), create your account and get it.
 
-Exemplo: 
+On the project root, there is a file named `.env.example`. Rename it to `.env.local` and add your key after `=` signal.
+
+Example: 
 ```bash
-RAPIDAPI_KEY=abcdefghijklmnopqrs
+RAPIDAPI_KEY=your-key-here
 ```
 
-## ⚙ Instalando as dependências
+## 💻 Running the project locally
+
+Clone the project
+
 ```bash
-npm install
-# ou
-yarn
-```
-## 💻Rodando o projeto localmente
-Para executar o servidor de desenvolvimento:
-```bash
-npm run dev
-# ou
-yarn dev
+  git clone https://github.com/GGalupo/gg-games.git
 ```
 
-Abra [http://localhost:3000](http://localhost:3000) no seu navegador para visualizar o projeto.
+Go to the project directory
 
-## 🛠️Ferramentas utilizadas
+```bash
+  cd gg-games
+```
+
+Install dependencies
+
+```bash
+  npm install
+  # or
+  yarn
+```
+
+Start the project (dev)
+
+```bash
+  npm run dev
+  # or
+  yarn dev
+```
+
+Start the project (prod)
+
+```bash
+  npm run build
+  # or
+  yarn build
+```
+
+```bash
+  npm run start
+  # or
+  yarn start
+```
+
+Open [http://localhost:3000](http://localhost:3000) on your browser to see the project.
+
+## 🛠️ Tech Stack
 
  - NextJS
  - ReactJS
@@ -40,4 +73,3 @@ Abra [http://localhost:3000](http://localhost:3000) no seu navegador para visual
  - Styled-components
  - Axios
  - React-icons
-
