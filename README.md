@@ -1,5 +1,5 @@
 ##  📖 About the project
-Game Finder is a project that let users search for games to play.
+GG Games is a project that let users search for games to play.
 
 By clicking on a game, the user can see detailed information about it.
 

@@ -91,7 +91,7 @@ const Home: NextPage<HomeProps> = ({ apiKey }) => {
 
       <StyledContainer>
         <StyledPageTitle>
-          Game Finder
+          GG Games
           <br />
           <span>Find the best games to play!</span>
         </StyledPageTitle>
